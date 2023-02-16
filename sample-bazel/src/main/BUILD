@@ -1,5 +1,4 @@
-load(":foo.bzl", "foo_binary")
-load(":hash.bzl", "hashes")
+load(":file_count.bzl", "ruler_rule")
 
 android_binary(
     name = "app",
@@ -7,15 +6,9 @@ android_binary(
     deps = ["//src/main/java/com/example/bazel:greeter_activity"],
 )
 
-hashes(
-    name = "build_hash",
-    src = "BUILD",
-)
-
-foo_binary(
-    name = "bin", 
-    username = "Alice", 
-    deps=[":app"]
+ruler_rule(
+    name = "ruler",
+    deps = ["app"],
 )
 
 # foo_binary(name = "bin2")

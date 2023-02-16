@@ -14,16 +14,11 @@
 #   """
 #     print(deps)
 
-
-
-
 def _foo_binary_impl(ctx):
     print("analyzing", ctx.label)
     #trans_srcs = get_transitive_srcs([], ctx.attr.deps)
 
     # in_file = ctx.attr.deps #ctx.file.file
-
-    
 
     # The output file is declared with a name based on the target's name.
     # out_file = ctx.actions.declare_file("%s.size" % ctx.attr.name)
@@ -69,10 +64,10 @@ foo_binary = rule(
     implementation = _foo_binary_impl,
     attrs = {
         "username": attr.string(),
-        "deps": attr.label_list(            
+        "deps": attr.label_list(
             mandatory = True,
-        )
-    }
+        ),
+    },
 )
 
 print("bzl file evaluation")

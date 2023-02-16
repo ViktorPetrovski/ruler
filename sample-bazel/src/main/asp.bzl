@@ -1,6 +1,6 @@
 def _print_aspect_impl(target, ctx):
     # Make sure the rule has a srcs attribute.
-    if hasattr(ctx.rule.attr, 'srcs'):
+    if hasattr(ctx.rule.attr, "srcs"):
         # Iterate through the files that make up the sources and
         # print their paths.
         for src in ctx.rule.attr.srcs:
@@ -8,7 +8,7 @@ def _print_aspect_impl(target, ctx):
                 print(f.path)
     return []
 
-print_aspect = aspect(
+ruler_aspect = aspect(
     implementation = _print_aspect_impl,
-    attr_aspects = ['deps'],
+    attr_aspects = ["deps"],
 )
